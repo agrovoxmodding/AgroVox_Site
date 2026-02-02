@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AgroVox Modding | Agro Real para o Simulador</title>
+
+  <!-- SEO -->
+  <meta name="description" content="AgroVox Modding – Estúdio profissional de modelagem 3D e integração de implementos agrícolas reais no simulador de agricultura.">
+  <meta name="keywords" content="AgroVox, modelagem 3D, implementos agrícolas, simulador de agricultura, parcerias agro">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================
+       SELETOR DE IDIOMA
+  ========================== -->
+  <div class="lang-switch">
+    <button onclick="setLang('pt')">PT</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+
+  <!-- =========================
+       PARCEIROS FIXOS (MENU)
+  ========================== -->
+  <div class="partners-sidebar">
+    <a href="https://www.instagram.com/alemaogamer_ofc/" target="_blank" class="partner-item">
+      <img src="images/alemao.jpg" alt="Alemão Gamer">
+      <span>Alemão Gamer</span>
+    </a>
+
+    <a href="#" class="partner-item">
+      <img src="images/parceiro2.jpg" alt="Parceiro">
+      <span>Outro Parceiro</span>
+    </a>
+  </div>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <header class="hero parallax">
+    <h1 data-pt="AgroVox Modding" data-en="AgroVox Modding">
+      AgroVox Modding
+    </h1>
+
+    <p
+      data-pt="Do agro real para o simulador de agricultura. Modelagem 3D, texturização e integração profissional de implementos reais."
+      data-en="From real agriculture to the farming simulator. Professional 3D modeling, texturing and integration of real implements.">
+      Do agro real para o simulador de agricultura.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn">Portfólio</a>
+      <a href="#contact" class="btn btn-outline">Parceria</a>
+    </div>
+  </header>
+
+  <!-- =========================
+       SOBRE
+  ========================== -->
+  <section class="about fade">
+    <h2 data-pt="Sobre a AgroVox" data-en="About AgroVox">
+      Sobre a AgroVox
+    </h2>
+
+    <p
+      data-pt="A AgroVox Modding é um estúdio especializado em representar marcas agrícolas com máximo realismo dentro do simulador de agricultura."
+      data-en="AgroVox Modding is a studio specialized in representing agricultural brands with maximum realism inside the farming simulator.">
+      A AgroVox Modding é um estúdio especializado em representar marcas agrícolas com máximo realismo.
+    </p>
+  </section>
+
+  <!-- =========================
+       EMPRESAS PARCEIRAS
+  ========================== -->
+  <section class="partners fade">
+    <h2 data-pt="Empresas Parceiras" data-en="Partner Companies">
+      Empresas Parceiras
+    </h2>
+
+    <div class="partners-grid">
+      <div class="partner">Sua Marca Aqui</div>
+      <div class="partner">Sua Marca Aqui</div>
+      <div class="partner">Sua Marca Aqui</div>
+    </div>
+  </section>
+
+  <!-- =========================
+       PORTFÓLIO
+  ========================== -->
+  <section class="portfolio fade" id="portfolio">
+    <h2 data-pt="Portfólio" data-en="Portfolio">
+      Portfólio
+    </h2>
+
+    <div class="gallery">
+      <img src="images/LizardAgrasT100.jpg" alt="DJI Agras T100" >
+
+    </div>
+  </section>
+
+  <!-- =========================
+       CONTATO
+  ========================== -->
+  <section class="contact parallax" id="contact">
+    <h2 data-pt="Vamos Trabalhar Juntos" data-en="Let's Work Together">
+      Vamos Trabalhar Juntos
+    </h2>
+
+    <a href="https://wa.me/5547992712006" class="btn">
+      WhatsApp
+    </a>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <p>© 2026 AgroVox Modding – Todos os direitos reservados</p>
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+  <script>
+    /* ANIMAÇÃO FADE */
+    const faders = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    faders.forEach(el => observer.observe(el));
+
+    /* TROCA DE IDIOMA */
+    function setLang(lang) {
+      document.querySelectorAll('[data-pt]').forEach(el => {
+        el.innerText = el.getAttribute('data-' + lang);
+      });
+    }
+
+    /* PARALLAX */
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.parallax').forEach(el => {
+        el.style.backgroundPositionY = window.scrollY * 0.4 + 'px';
+      });
+    });
+  </script>
+
+</body>
+</html>
