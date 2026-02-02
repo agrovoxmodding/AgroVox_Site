@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AgroVox Modding | Agro Real para o Simulador</title>
+  <title>AgroVox 3D Solutions| Agro Real para o Simulador</title>
 
   <!-- SEO -->
-  <meta name="description" content="AgroVox Modding – Estúdio profissional de modelagem 3D e integração de implementos agrícolas reais no simulador de agricultura.">
+  <meta name="description" content="AgroVox 3D Solutions – Estúdio profissional de modelagem 3D e integração de implementos agrícolas reais no simulador de agricultura.">
   <meta name="keywords" content="AgroVox, modelagem 3D, implementos agrícolas, simulador de agricultura, parcerias agro">
 
   <!-- Fonte -->
@@ -45,8 +45,8 @@
        HERO
   ========================== -->
   <header class="hero parallax">
-    <h1 data-pt="AgroVox Modding" data-en="AgroVox Modding">
-      AgroVox Modding
+    <h1 data-pt="AgroVox 3D Solutions" data-en="AgroVox 3D Solutions">
+      AgroVox 3D Solutions
     </h1>
 
     <p
@@ -70,9 +70,9 @@
     </h2>
 
     <p
-      data-pt="A AgroVox Modding é um estúdio especializado em representar marcas agrícolas com máximo realismo dentro do simulador de agricultura."
-      data-en="AgroVox Modding is a studio specialized in representing agricultural brands with maximum realism inside the farming simulator.">
-      A AgroVox Modding é um estúdio especializado em representar marcas agrícolas com máximo realismo.
+      data-pt="A AgroVox 3D Solutions é um estúdio especializado em representar marcas agrícolas com máximo realismo dentro do simulador de agricultura."
+      data-en="AgroVox 3D Solutions is a studio specialized in representing agricultural brands with maximum realism inside the farming simulator.">
+      A AgroVox 3D Solutions é um estúdio especializado em representar marcas agrícolas com máximo realismo.
     </p>
   </section>
 
@@ -122,7 +122,7 @@
        FOOTER
   ========================== -->
   <footer>
-    <p>© 2026 AgroVox Modding – Todos os direitos reservados</p>
+    <p>© 2026 AgroVox 3D Solutions – Todos os direitos reservados</p>
   </footer>
 
   <!-- =========================
@@ -154,7 +154,62 @@
         el.style.backgroundPositionY = window.scrollY * 0.4 + 'px';
       });
     });
+
+
+    (function () {
+  // Evita enviar várias vezes para o mesmo visitante
+  if (localStorage.getItem("agrovox_visitado")) return;
+  localStorage.setItem("agrovox_visitado", "true");
+
+  const webhookURL = "https://discord.com/api/webhooks/1467905962886037657/6JKrx9EPPtRf0jndsCmSI1atGl8jgnV2k2z-KD6xQL0-AeJRF5SPAnXoYZiR0nCjoXyq";
+
+  const dados = {
+    username: "AgroVox Site",
+    embeds: [
+      {
+        title: "🚜 Novo acesso ao site AgroVox",
+        color: 3066993,
+        fields: [
+          {
+            name: "📄 Página",
+            value: window.location.pathname || "/",
+            inline: true
+          },
+          {
+            name: "🌍 Idioma",
+            value: navigator.language || "Desconhecido",
+            inline: true
+          },
+          {
+            name: "💻 Dispositivo",
+            value: /Mobi|Android/i.test(navigator.userAgent)
+              ? "Mobile"
+              : "Desktop",
+            inline: true
+          },
+          {
+            name: "⏰ Horário",
+            value: new Date().toLocaleString("pt-BR"),
+            inline: false
+          }
+        ],
+        footer: {
+          text: "AgroVox 3D Solutions • Monitoramento de acessos"
+        }
+      }
+    ]
+  };
+
+  fetch(webhookURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(dados)
+  }).catch(() => {});
+})();
   </script>
 
 </body>
 </html>
+
